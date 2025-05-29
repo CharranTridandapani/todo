@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
-  const BASE_URL= "http://192.168.1.4:5000"
+  const BASE_URL= "http://13.127.9.169:5000"
   // Fetch tasks from backend
   useEffect(() => {
     fetchTasks();
@@ -19,7 +19,7 @@ function App() {
 
   const addTask = async () => {
     if (task) {
-      const response = await fetch('http://localhost:5000/tasks', {
+      const response = await fetch(`${BASE_URL}/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: task })
@@ -30,7 +30,7 @@ function App() {
   };
 
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, { method: 'DELETE' });
+    await fetch(`${BASE_URL}/tasks/${id}`, { method: 'DELETE' });
     fetchTasks(); // Refresh the list
   };
 
