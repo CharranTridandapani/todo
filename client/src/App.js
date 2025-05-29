@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
-  const BASE_URL= "http://13.127.9.169:5000"
+  const BASE_URL= "http://192.168.1.4:5000"
   // Fetch tasks from backend
   useEffect(() => {
     fetchTasks();
